@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="CSS/signup.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <input type="email" id="signup-email" placeholder="Enter the email-ID">
+        <input type="password" id="signup-password" placeholder="Enter your password">
+        <select id="role">
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+        </select>
+
+        <button id="signup-btn">Sign Up</button>
+
+        <p id="signup-message"></p>
+        <p>Already have an Account? <a href="login.html">Login</a></p>
+    </div>
+
+    <script type="module" src="JS/auth.js"></script>
+</body>
+</html>

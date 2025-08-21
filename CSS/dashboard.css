@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'Exo 2',sans-serif;
+    transition: all .2s linear;
+    text-transform: capitalize;
+}
+
+:root{
+    --orange: #ff7a00
+}
+
+html{
+    font-family: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: #fff;
+    z-index: 100;
+    padding: .15rem 2rem;
+    box-shadow: 0 .2rem .5rem rgba(0,0,0,.3);
+}
+
+.header .logo img{
+    height: 5rem;
+}
+
+.header nav ul{
+   list-style-type: none;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   margin: 0; padding: 0;
+}
+
+.header nav ul li{
+    margin: 0 1.5rem;
+    color: #666;
+}
+
+.header nav ul li a{
+    font-size: 1.5rem;
+    color: #666;
+}
+
+.header button{
+    font-size: 1.5rem;
+    color: #ffffff;
+    border: none;
+    background: #666;
+    padding: 5px;
+    border-radius: 30%;
+}
+
+.header button:hover{
+    color: #666  ;
+    background: #ffffff;
+}
+
+
+.header #mobile{
+    display: none;
+    align-items: center;
+}
+
+
+
+
+
+
+/* media queries */
+
+@media (max-width:768px){
+    html {
+        font-size: 50%;
+    }
+
+    .header .fa-bars {
+        display: block;
+        cursor: pointer; /* makes it clickable */
+    }
+
+    .header nav {
+       position: fixed;
+       top: 6rem;
+       right: -100%; /* start hidden */
+       height: calc(100vh - 6rem);
+       width: 100vw;
+       background: rgba(0,0,0,.5);
+       z-index: 1000;
+       border-top: .1rem solid rgba(0,0,0,.3);
+       transition: right 0.3s ease; /* smooth slide */
+    }
+
+    .header nav.active {
+        right: 0; /* show when active */
+    }
+
+    .header nav ul {
+        height: 100%;
+        width: 33rem;
+        background: #fff;
+        flex-flow: column;
+        justify-content: center;
+        float: right;
+    }
+
+    .header nav ul li a {
+        display: block;
+        padding: .5rem 0;
+        border: .1rem solid rgba(0,0,0,.3);
+        width: 25rem;
+        border-radius: 5rem;
+        text-align: center;
+        margin: 1rem auto;
+    }
+
+    .header nav ul li a:hover {
+        background: #333;
+        color: #fff;
+    }
+}
+
+@media (max-width: 799px) {
+.header #mobile{
+    display: flex;
+    align-items: center;
+}
+.header #mobile i{
+    color: #333;
+    font-size: 24px;
+    padding-left: 20px;
+}
+}
