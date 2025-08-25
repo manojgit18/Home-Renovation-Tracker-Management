@@ -1,0 +1,274 @@
+/* Reset and base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  width: 100%;
+  background-color: #f8f9fa; /* light gray for admin bg */
+}
+
+/* Logo */
+.logo img {
+  height: 70px;
+  width: 95px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.logo img:hover {
+  transform: scale(1.1);
+}
+
+/* Header */
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 50px;
+  background-color: #ffffff; /* dark navy admin theme */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#navbar li {
+  list-style: none;
+  padding: 0 18px;
+  position: relative;
+}
+
+#navbar li a {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: #000000; /* light text */
+  transition: 0.3s ease;
+  position: relative;
+}
+
+#navbar li a:hover,
+#navbar li a.active {
+  color: #5685eb; /* green accent */
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after {
+  content: "";
+  width: 30%;
+  height: 2px;
+  background: #5685eb;
+  position: absolute;
+  bottom: -4px;
+  left: 20px;
+}
+
+/* dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown > a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  padding: 10px;
+  transition: 0.3s ease;
+}
+
+.dropdown > a:hover {
+  color: #5685eb;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  min-width: 200px;
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  list-style: none;
+  padding: 10px 5px;
+  margin: 0;
+  border-radius: 6px;
+  z-index: 1000;
+}
+
+.dropdown-menu li {
+  padding: 8px 20px;
+}
+
+.dropdown-menu li a {
+  padding-bottom: 10%;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+}
+
+.dropdown-menu li a:hover {
+  background:#f5f5f5;
+  border-radius: 4px;
+}
+
+/* Show on hover */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+
+/* logout button */
+#logout-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background: #5685eb;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#logout-btn:hover {
+    background: #ffffff;
+    color: #5685eb;
+}
+/* Hero */
+#hero {
+  height: 90vh;
+  width: 100%;
+  background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('Hero2.jpg') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 0 20px;
+}
+
+.hero-content {
+  max-width: 800px;
+  animation: fadeInUp 1s ease-out;
+}
+
+#hero h1 {
+  font-size: 3.2rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+#hero p {
+  font-size: 1.2rem;
+  margin-bottom: 35px;
+  color: #ffffff;
+}
+
+/* Buttons */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+.primary-btn {
+  background: #5685eb;
+  color: #fff;
+}
+.primary-btn:hover {
+  background: #fff;
+  color: #5685eb;
+  border: 1px solid #5685eb;
+}
+.secondary-btn {
+  background: #5685eb;
+  color: #ffffff;
+  border: 1px solid #5685eb;
+}
+.secondary-btn:hover {
+    background: #ffffff;
+    color: #5685eb;
+}
+
+
+
+#admin-dashboard {
+  padding: 20px;
+}
+
+.project-card {
+  background: #fff;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.project-card h3 {
+  margin: 0 0 10px 0;
+}
+
+.project-card p {
+  margin: 5px 0;
+}
+
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.button-group button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-group .edit-btn {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.button-group .delete-btn {
+  background-color: #5685eb;
+  color: #fff;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

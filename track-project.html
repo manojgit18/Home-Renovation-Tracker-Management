@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Track My Projects</title>
+    <link rel="stylesheet" href="CSS/track.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <section id="header">
+      <a href="user-dashboard.html" class="logo" id="#home"
+        ><img src="Logo.png" alt="logo"
+      /></a>
+
+      <div>
+        <ul id="navbar">
+          <li><a href="#">Home</a></li>
+          <li><a href="#about-services">About</a></li>
+
+          <!-- Personal, project-specific tools only -->
+          <li class="dropdown">
+            <a href="#">My Renovation ▾</a>
+            <ul class="dropdown-menu">
+              <ul class="nav-links">
+                <li><a href="track-project.html">Track Project</a></li>
+                <li><a href="create-project.html">Create Project</a></li>
+              </ul>
+            </ul>
+          </li>
+
+          <!-- User-only pages -->
+          <li><a href="#my-projects">Our Projects</a></li>
+          <li><a href="#support">Support</a></li>
+          <li><button id="logout-btn">Logout</button></li>
+        </ul>
+      </div>
+    </section>
+    <section id="track-project">
+      <h2>My Projects</h2>
+
+      <!-- Projects container -->
+      <div id="projectList" class="projects-container">
+        <!-- JS will inject project cards here -->
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Logo -->
+        <div class="footer-col logo-col">
+          <img src="logo.png" alt="Home Reset Logo" class="footer-logo" />
+        </div>
+
+        <!-- Address + Social -->
+        <div class="footer-col address-col">
+          <p>
+            <strong>Address:</strong> CHOICE NX, LT Road, Borivali (W), Mumbai,
+            Maharashtra 400092, India
+          </p>
+          <p><strong>Phone:</strong> +91 8828788866</p>
+          <p><strong>Email:</strong> homereset123@gmail.com</p>
+
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#about-services">About Us</a></li>
+            <li><a href="#my-projects">Projects</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- My Account -->
+        <div class="footer-col">
+          <h4>My Account</h4>
+          <ul>
+            <li><a href="#">Sign In</a></li>
+            <li><a href="#track-project">Track My Project</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <p>© 2025 HOME RESET | All Rights Reserved</p>
+      </div>
+    </footer>
+
+    <!-- Link JS -->
+    <script type="module" src="js/auth.js"></script>
+    <script type="module" src="js/user-dashboard.js"></script>
+    <script type="module" src="js/track-project.js"></script>
+  </body>
+</html>

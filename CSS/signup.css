@@ -8,6 +8,8 @@
 
 /* body styling */
 body{
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('bg.jpg')  no-repeat center center/cover;;
     background-color: #f4f4f4;
     display: flex;
     align-items: center;
@@ -18,7 +20,7 @@ body{
 
 /* container styling */
 .container{
-    background: #ffffff;
+    background: none;
     padding: 30px;
     border-radius: 10px;
     width: 100%;
@@ -28,7 +30,7 @@ body{
 
 /* heading */
 h2{
-    color : #333;
+    color : #ffffff;
     margin-bottom: 20px;
 }
 
@@ -59,6 +61,10 @@ button{
 p{
    font-size: 14px;
    margin-top: 10px;
+   color: white;
+}
+p a{
+  color: white;  
 }
 
 /* mobile view responsiveness */

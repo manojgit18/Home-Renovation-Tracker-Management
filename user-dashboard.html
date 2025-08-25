@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Dashboard – Home Improvement Tracker</title>
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <section id="header">
+      <a href="user-dashboard.html" class="logo" id="#home"
+        ><img src="Logo.png" alt="logo"
+      /></a>
+
+      <div>
+        <ul id="navbar">
+          <li><a href="#">Home</a></li>
+          <li><a href="#about-services">About</a></li>
+
+          <!-- Personal, project-specific tools only -->
+          <li class="dropdown">
+            <a href="#">My Renovation ▾</a>
+            <ul class="dropdown-menu">
+                <ul class="nav-links">
+                  <li><a href="track-project.html">Track Project</a></li>
+                  <li><a href="create-project.html">Create Project</a></li>
+                </ul>
+            </ul>
+          </li>
+
+          <!-- User-only pages -->
+          <li><a href="#my-projects">Our Projects</a></li>
+          <li><a href="#support">Support</a></li>
+          <li><button id="logout-btn">Logout</button></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Hero -->
+    <section id="hero" class="hero user-hero">
+      <div class="hero-content">
+        <h1>Transform Your Home With Ease</h1>
+        <p>
+          Plan, track progress, manage budget and materials — all in one place.
+        </p>
+        <p>Transforming Urban Living with HOME RESET</p>
+        <div class="hero-buttons">
+          <a href="project-planning.html" class="btn primary-btn"
+            >Start My Project</a
+          >
+          <a href="#contactUs" class="btn secondary-btn">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- about -->
+    <section
+      id="about-services"
+      style="padding: 50px; font-family: Arial, sans-serif"
+    >
+      <h2 style="text-align: center; margin-bottom: 40px">
+        About Our Renovation Services
+      </h2>
+
+      <!-- Kitchen Renovation -->
+      <div style="display: flex; align-items: center; margin-bottom: 60px">
+        <div style="flex: 1; padding: 20px">
+          <h3>Kitchen Renovation</h3>
+          <p>
+            Transform your kitchen into a modern and functional space. We
+            specialize in redesigning layouts, installing high-quality
+            countertops, energy-efficient appliances, smart storage solutions,
+            and stylish finishes. Whether it’s a minor update or a complete
+            makeover, our team ensures your kitchen becomes the heart of your
+            home with a blend of functionality and aesthetics.
+          </p>
+        </div>
+        <div style="flex: 1; text-align: center">
+          <img
+            src="Dashboard Images/Kitchen.jpg"
+            alt="Kitchen Renovation"
+            style="width: 90%; border-radius: 10px"
+          />
+        </div>
+      </div>
+
+      <!-- Bathroom Renovation -->
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          margin-bottom: 60px;
+          flex-direction: row-reverse;
+        "
+      >
+        <div style="flex: 1; padding: 20px">
+          <h3>Bathroom Renovation</h3>
+          <p>
+            Upgrade your bathroom into a relaxing and luxurious retreat. Our
+            services include modern tiling, sleek vanities, water-saving
+            fixtures, elegant lighting, and optimized layouts for better space
+            usage. From compact bathrooms to lavish master baths, we focus on
+            comfort, durability, and style that fit your lifestyle.
+          </p>
+        </div>
+        <div style="flex: 1; text-align: center">
+          <img
+            src="Dashboard Images/Bathroom.jpg"
+            alt="Bathroom Renovation"
+            style="width: 90%; border-radius: 10px"
+          />
+        </div>
+      </div>
+
+      <!-- Full Home Renovation -->
+      <div style="display: flex; align-items: center; margin-bottom: 60px">
+        <div style="flex: 1; padding: 20px">
+          <h3>Full Home Renovation</h3>
+          <p>
+            Give your entire home a fresh new look with our full home renovation
+            service. We handle everything—from interior redesign, flooring,
+            painting, electrical and plumbing upgrades, to complete space
+            optimization. Our goal is to create a cohesive and modern living
+            environment that enhances both aesthetics and functionality while
+            increasing your property value.
+          </p>
+        </div>
+        <div style="flex: 1; text-align: center">
+          <img
+            src="Dashboard Images/Home.jpg"
+            alt="Full Home Renovation"
+            style="width: 90%; border-radius: 10px"
+          />
+        </div>
+      </div>
+
+      <!-- Home Extension -->
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          margin-bottom: 60px;
+          flex-direction: row-reverse;
+        "
+      >
+        <div style="flex: 1; padding: 20px">
+          <h3>Home Extension</h3>
+          <p>
+            Need more space for your growing family or a new lifestyle? Our home
+            extension services cover everything from additional rooms, extended
+            living areas, to multi-floor expansions. We ensure seamless
+            integration with your existing design while maximizing
+            functionality, space efficiency, and natural light. Extensions are
+            planned with both structural safety and elegance in mind.
+          </p>
+        </div>
+        <div style="flex: 1; text-align: center">
+          <img
+            src="Dashboard Images/Extension.jpg"
+            alt="Home Extension"
+            style="width: 90%; border-radius: 10px"
+          />
+        </div>
+      </div>
+
+      <!-- Home Maintenance -->
+      <div style="display: flex; align-items: center; margin-bottom: 60px">
+        <div style="flex: 1; padding: 20px">
+          <h3>Home Maintenance</h3>
+          <p>
+            Keep your home in top condition with our reliable maintenance
+            services. We provide regular inspections, plumbing and electrical
+            repairs, roof maintenance, painting, and seasonal upkeep. With
+            preventive care and quick fixes, we help you avoid costly damage,
+            extend the life of your property, and ensure a safe, comfortable
+            living space.
+          </p>
+        </div>
+        <div style="flex: 1; text-align: center">
+          <img
+            src="Dashboard Images/Maintenance.jpg"
+            alt="Home Maintenance"
+            style="width: 90%; border-radius: 10px"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Gallery Section -->
+    <section id="my-projects">
+      <h2>Our Projects Gallery</h2>
+
+      <!-- Kitchen Renovations -->
+      <div class="service-gallery">
+        <h3>Kitchen Renovations</h3>
+        <div class="gallery">
+          <div class="gallery-item">
+            <img
+              src="Dashboard Images/Modern Open Kitchen.jpg"
+              alt="Modern Kitchen Design"
+            />
+            <p>Modern Open Kitchen</p>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="Dashboard Images/compact smart kitchen.jpg"
+              alt="Compact Kitchen Design"
+            />
+            <p>Compact Smart Kitchen</p>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="Dashboard Images/Luxury Kitchen Setup.jpg"
+              alt="Luxury Kitchen Design"
+            />
+            <p>Luxury Kitchen Setup</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bathroom Renovations -->
+      <div class="service-gallery">
+        <h3>Bathroom Renovations</h3>
+        <div class="gallery">
+          <div class="gallery-item">
+            <img
+              src="Dashboard Images/Minimalist Bathroom.jpg"
+              alt="Modern Bathroom"
+            />
+            <p>Minimalist Bathroom</p>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="Dashboard Images/Luxury Spa Style.jpg"
+              alt="Luxury Bathroom"
+            />
+            <p>Luxury Spa Style</p>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="Dashboard Images/Compact Smart Bathroom.jpg"
+              alt="Compact Bathroom"
+            />
+            <p>Compact Smart Bathroom</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Living Room -->
+      <div class="service-gallery">
+        <h3>Living Room Designs</h3>
+        <div class="gallery">
+          <div class="gallery-item">
+            <img
+              src="Dashboard Images/Cozy Family Room.jpg"
+              alt="Modern Living Room"
+            />
+            <p>Cozy Family Room</p>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="Dashboard Images/Luxury Living Room.jpg"
+              alt="Luxury Living Room"
+            />
+            <p>Luxury Living Room</p>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="Dashboard Images/Minimalist Living Room.jpg"
+              alt="Minimalist Living Room"
+            />
+            <p>Minimalist Setup</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bedroom -->
+      <div class="service-gallery">
+        <h3>Bedroom Interiors</h3>
+        <div class="gallery">
+          <div class="gallery-item">
+            <img
+              src="Dashboard Images/Cozy Modern Bedroom.jpg"
+              alt="Cozy Bedroom"
+            />
+            <p>Cozy Modern Bedroom</p>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="Dashboard Images/Luxury Bedroom.jpg"
+              alt="Luxury Bedroom"
+            />
+            <p>Luxury Bedroom</p>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="Dashboard Images/Minimalist Bedroom.jpg"
+              alt="Minimalist Bedroom"
+            />
+            <p>Minimalist Design</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Full Home -->
+      <div class="service-gallery">
+        <h3>Full Home Renovations</h3>
+        <div class="gallery">
+          <div class="gallery-item">
+            <img
+              src="Dashboard Images/Complete Modern Home.jpg"
+              alt="Modern Home"
+            />
+            <p>Complete Modern Home</p>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="Dashboard Images/Luxury Full Home.jpg"
+              alt="Luxury Home"
+            />
+            <p>Luxury Full Home</p>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="Dashboard Images/Traditional Style.jpg"
+              alt="Traditional Home"
+            />
+            <p>Traditional Style</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Support Section -->
+    <section id="support">
+      <div class="support-container">
+        <!-- Map -->
+        <div class="support-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.566456061128!2d72.87765581528546!3d19.07598388708947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c630b3b7afbd%3A0x8f9bbba0e4c7f6a1!2sMumbai%20Central%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <!-- Form -->
+        <div class="support-form">
+          <h2>Contact Support</h2>
+          <form>
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your Name" required />
+
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Your Email" required />
+
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              rows="4"
+              placeholder="How can we help you?"
+              required
+            ></textarea>
+
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Logo -->
+        <div class="footer-col logo-col">
+          <img src="logo.png" alt="Home Reset Logo" class="footer-logo" />
+        </div>
+
+        <!-- Address + Social -->
+        <div class="footer-col address-col">
+          <p>
+            <strong>Address:</strong> CHOICE NX, LT Road, Borivali (W), Mumbai,
+            Maharashtra 400092, India
+          </p>
+          <p><strong>Phone:</strong> +91 8828788866</p>
+          <p><strong>Email:</strong> homereset123@gmail.com</p>
+
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#about-services">About Us</a></li>
+            <li><a href="#my-projects">Projects</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- My Account -->
+        <div class="footer-col">
+          <h4>My Account</h4>
+          <ul>
+            <li><a href="#">Sign In</a></li>
+            <li><a href="#">Track My Project</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <p>© 2025 HOME RESET | All Rights Reserved</p>
+      </div>
+    </footer>
+
+    <script type="module" src="js/auth.js"></script>
+    <script type="module" src="js/user-dashboard.js"></script>
+  </body>
+</html>

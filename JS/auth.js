@@ -1,50 +1,96 @@
-import{auth, db} from '../firebase-config.js'
-import{signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+import { auth, db } from "../firebase-config.js";
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signOut,
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
-import{doc, getDoc, setDoc} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+import {
+  doc,
+  getDoc,
+  setDoc,
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-document.addEventListener('DOMContentLoaded', ()=>{
-    const loginBtn = document.getElementById('login-btn');
-    const signupBtn = document.getElementById('signup-btn');
-    const logoutBtn = document.getElementById('logout-btn');
+// Helper to get current user info (for welcome message)
+export async function getCurrentUser() {
+  return new Promise((resolve) => {
+    auth.onAuthStateChanged(async (user) => {
+      if (!user) return resolve(null);
+      const userDoc = await getDoc(doc(db, "users", user.uid));
+      if (userDoc.exists()) resolve({ uid: user.uid, ...userDoc.data() });
+      else resolve({ uid: user.uid, email: user.email });
+    });
+  });
+}
 
-    if(loginBtn){
-        loginBtn.addEventListener('click', async()=>{
-            const email = document.getElementById('login-email').value
-            const password = document .getElementById('login-password').value
+// Existing DOMContentLoaded login/signup/logout logic
+document.addEventListener("DOMContentLoaded", () => {
+  const loginBtn = document.getElementById("login-btn");
+  const signupBtn = document.getElementById("signup-btn");
+  const logoutBtn = document.getElementById("logout-btn");
 
-            try {
-                await signInWithEmailAndPassword(auth, email, password)
-                window.open('dashboard.html')
-            } catch (error) {
-                document.getElementById('login-message').innerText = error.message
-            }
-        })
-    }
+  // LOGIN
+  if (loginBtn) {
+    loginBtn.addEventListener("click", async () => {
+      const email = document.getElementById("login-email").value;
+      const password = document.getElementById("login-password").value;
 
-        if(signupBtn){
-        signupBtn.addEventListener('click', async()=>{
-            const email = document.getElementById('signup-email').value;
-            const password = document .getElementById('signup-password').value;
-            const role = document.getElementById('role').value;
+      try {
+        const userCredential = await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+        const uid = userCredential.user.uid;
 
-            try {
-                const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
- 
-                await setDoc(doc(db, "users", userCredentials.user.uid), { email, role });
+        const userDocRef = doc(db, "users", uid);
+        const userDoc = await getDoc(userDocRef);
 
-                window.location.href = 'login.html'
+        if (userDoc.exists()) {
+          const role = userDoc.data().role;
+          if (role === "admin") window.location.href = "admin-dashboard.html";
+          else window.location.href = "user-dashboard.html";
+        } else {
+          document.getElementById("login-message").innerText =
+            "No user data found!";
+        }
+      } catch (error) {
+        document.getElementById("login-message").innerText = error.message;
+      }
+    });
+  }
 
-            } catch (error) {
-                document.getElementById('signup-message').innerText = error.message
-            }
-        })
-    }
+  // SIGNUP
+  if (signupBtn) {
+    signupBtn.addEventListener("click", async () => {
+      const email = document.getElementById("signup-email").value;
+      const password = document.getElementById("signup-password").value;
+      const role = document.getElementById("role").value;
 
-    if(logoutBtn){
-        logoutBtn.addEventListener('click', async()=>{
-            await signOut(auth);
-            window.location.href = 'login.html'
-        })
-    }
-})
+      try {
+        const userCredentials = await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+
+        await setDoc(doc(db, "users", userCredentials.user.uid), {
+          email,
+          role,
+        });
+
+        window.location.href = "login.html";
+      } catch (error) {
+        document.getElementById("signup-message").innerText = error.message;
+      }
+    });
+  }
+
+  // LOGOUT
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", async () => {
+      await signOut(auth);
+      window.location.href = "login.html";
+    });
+  }
+});
