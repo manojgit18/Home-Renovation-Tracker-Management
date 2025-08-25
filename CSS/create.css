@@ -376,3 +376,125 @@ footer {
   font-size: 13px;
   color: #666;
 }
+
+
+/* ========================= */
+/* Create Project Media Queries */
+/* ========================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  #header {
+    padding: 5px 30px;
+    flex-wrap: wrap;
+  }
+
+  #navbar {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  #navbar li {
+    padding: 8px 12px;
+  }
+
+  #create-project {
+    max-width: 600px;
+    padding: 25px;
+    margin: 50px auto;
+  }
+
+  #create-project h2 {
+    font-size: 22px;
+  }
+
+  #create-project input,
+  #create-project textarea {
+    font-size: 14px;
+  }
+
+  #create-project button {
+    font-size: 15px;
+    padding: 11px;
+  }
+}
+
+/* Small tablets / large phones */
+@media (max-width: 768px) {
+  #header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #navbar {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #navbar li {
+    width: 100%;
+    padding: 8px 0;
+  }
+
+  #create-project {
+    max-width: 500px;
+    padding: 20px;
+    margin: 40px auto;
+  }
+
+  #create-project h2 {
+    font-size: 20px;
+  }
+
+  #create-project input,
+  #create-project textarea {
+    font-size: 14px;
+    padding: 9px;
+  }
+
+  #create-project button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  #header {
+    padding: 5px 15px;
+  }
+
+  #create-project {
+    max-width: 95%;
+    padding: 15px;
+    margin: 30px auto;
+  }
+
+  #create-project h2 {
+    font-size: 18px;
+  }
+
+  #create-project input,
+  #create-project textarea {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  #create-project button {
+    font-size: 13px;
+    padding: 9px;
+  }
+
+  #create-project textarea#projectDesc {
+    height: 100px;
+  }
+}
+@media (max-width: 480px) {
+  #create-project fieldset {
+    padding: 10px;
+  }
+
+  #create-project fieldset label {
+    font-size: 13px;
+  }
+}

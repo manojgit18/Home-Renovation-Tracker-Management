@@ -615,3 +615,94 @@ footer {
     transform: translateY(0);
   }
 }
+
+/* ============================= */
+/* User Dashboard Responsive CSS */
+/* ============================= */
+
+@media (max-width: 1024px) {
+  #projectList {
+    padding: 0 20px;
+  }
+
+  .project-card, .user-project-container {
+    padding: 15px;
+  }
+
+  .status-update {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .status-update select, 
+  .status-update button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  #header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  #navbar {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #navbar li {
+    padding: 10px 0;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .project-card, .user-project-container {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .project-card h3 {
+    font-size: 16px;
+  }
+
+  .project-card p {
+    font-size: 14px;
+  }
+
+  .status-update label {
+    font-size: 14px;
+  }
+
+  .status-update select, 
+  .status-update button {
+    font-size: 14px;
+  }
+
+  #logout-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}

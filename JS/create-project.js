@@ -1,29 +1,25 @@
 import { auth, db } from "../firebase-config.js";
 import { addDoc, collection } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
-import { getCurrentUser } from "./auth.js";
 
+// Wait for auth state
 auth.onAuthStateChanged(async (user) => {
   if (!user) {
     window.location.href = "login.html";
     return;
   }
 
-  // Welcome message
-  const currentUser = await getCurrentUser();
-  const header = document.querySelector("#create-project h2");
-  if (currentUser && currentUser.name) {
-    header.textContent = `Welcome, ${currentUser.name}! Create a New Project`;
-  }
-
-  // Handle form submission
   const form = document.getElementById("createProjectForm");
+
   if (form) {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+
+      // form fields
       const name = document.getElementById("projectName").value.trim();
       const description = document.getElementById("projectDesc").value.trim();
       const budget = document.getElementById("projectBudget").value.trim();
 
+      // check renovation checkboxes
       const renovations = [];
       document.querySelectorAll("input[name='renovation']:checked").forEach((checkbox) => {
         renovations.push(checkbox.value);
@@ -41,8 +37,8 @@ auth.onAuthStateChanged(async (user) => {
           description,
           budget,
           renovations,
-          status: "pending",
-          progress: ["Created"],
+          status: "pending",      // default until admin approves
+          progress: ["Created"],  // default first step
           createdAt: new Date()
         });
 

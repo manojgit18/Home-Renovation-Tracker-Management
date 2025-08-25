@@ -272,3 +272,122 @@ body {
     transform: translateY(0);
   }
 }
+
+
+/* ========================= */
+/* Admin Dashboard Media Queries */
+/* ========================= */
+
+@media (max-width: 1024px) {
+  #header {
+    padding: 8px 30px;
+    flex-wrap: wrap;
+  }
+
+  #navbar {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  #navbar li {
+    padding: 8px 12px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .project-card {
+    padding: 12px 15px;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .button-group button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  #header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #navbar {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #navbar li {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .project-card {
+    margin-bottom: 12px;
+  }
+
+  .status-update {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .status-update select,
+  .status-update button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  #hero {
+    height: auto;
+    padding: 30px 10px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero-content p {
+    font-size: 0.95rem;
+  }
+
+  .project-card h3 {
+    font-size: 16px;
+  }
+
+  .project-card p {
+    font-size: 14px;
+  }
+
+  .button-group button {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
+  #logout-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+}

@@ -48,22 +48,24 @@ async function loadAllProjects() {
 
     // Render each user's projects in one container
     for (const userId in usersProjects) {
+      // Use username from first project
+      const username = usersProjects[userId][0].username || userId;
+
       const userDiv = document.createElement("div");
       userDiv.classList.add("user-project-container");
-      userDiv.innerHTML = `<h2>User: ${userId}</h2>`;
+      userDiv.innerHTML = `<h2>${username}'s Dashboard</h2>`;
 
       usersProjects[userId].forEach(project => {
         const projectDiv = document.createElement("div");
         projectDiv.classList.add("project-card");
-        
-        // Status dropdown
+
         const statusOptions = projectStatuses
           .map(status => `<option value="${status}" ${status === project.status ? "selected" : ""}>${status}</option>`)
           .join("");
 
         projectDiv.innerHTML = `
           <h3>${project.name}</h3>
-          <p><b>Budget:</b> ${project.budget || "N/A"}</p>
+          <p><b>Budget:</b> ₹${project.budget || "N/A"}</p>
           <p><b>Renovations:</b> ${project.renovations?.join(", ") || "None"}</p>
           <p><b>Description:</b> ${project.description || "No description"}</p>
           <div class="status-update">
@@ -92,7 +94,7 @@ async function loadAllProjects() {
   }
 }
 
-// Update project status (alert behavior kept)
+// Update project status
 async function updateStatus(projectId, div) {
   const selectEl = div.querySelector("select");
   const newStatus = selectEl.value;

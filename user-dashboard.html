@@ -9,6 +9,19 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "1LaKraa-vKCMupue8",
+        });
+      })();
+    </script>
+    <script src="script.js"></script>
   </head>
   <body>
     <!-- Header -->
@@ -26,10 +39,10 @@
           <li class="dropdown">
             <a href="#">My Renovation ▾</a>
             <ul class="dropdown-menu">
-                <ul class="nav-links">
-                  <li><a href="track-project.html">Track Project</a></li>
-                  <li><a href="create-project.html">Create Project</a></li>
-                </ul>
+              <ul class="nav-links">
+                <li><a href="track-project.html">Track Project</a></li>
+                <li><a href="create-project.html">Create Project</a></li>
+              </ul>
             </ul>
           </li>
 
@@ -50,10 +63,10 @@
         </p>
         <p>Transforming Urban Living with HOME RESET</p>
         <div class="hero-buttons">
-          <a href="project-planning.html" class="btn primary-btn"
+          <a href="create-project.html" class="btn primary-btn"
             >Start My Project</a
           >
-          <a href="#contactUs" class="btn secondary-btn">Contact Us</a>
+          <a href="#support" class="btn secondary-btn">Contact Us</a>
         </div>
       </div>
     </section>
@@ -369,7 +382,7 @@
               required
             ></textarea>
 
-            <button type="submit">Send Message</button>
+            <button type="submit" onclick="sendMail()">Send Message</button>
           </form>
         </div>
       </div>
@@ -405,7 +418,7 @@
           <ul>
             <li><a href="#about-services">About Us</a></li>
             <li><a href="#my-projects">Projects</a></li>
-            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#support">Contact Us</a></li>
           </ul>
         </div>
 
@@ -413,9 +426,8 @@
         <div class="footer-col">
           <h4>My Account</h4>
           <ul>
-            <li><a href="#">Sign In</a></li>
-            <li><a href="#">Track My Project</a></li>
-            <li><a href="#">Help</a></li>
+            <li><a href="track-project.html">Track My Project</a></li>
+            <li><a href="#support">Help</a></li>
           </ul>
         </div>
       </div>
