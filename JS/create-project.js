@@ -4,7 +4,7 @@ import { addDoc, collection } from "https://www.gstatic.com/firebasejs/12.1.0/fi
 // Wait for auth state
 auth.onAuthStateChanged(async (user) => {
   if (!user) {
-    window.location.href = "login.html";
+    window.location.href = "index.html";
     return;
   }
 

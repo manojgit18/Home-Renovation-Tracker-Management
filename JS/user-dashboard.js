@@ -35,16 +35,16 @@ auth.onAuthStateChanged(async (user) => {
       if (logoutBtn) {
         logoutBtn.addEventListener("click", async () => {
           await auth.signOut();
-          window.location.href = "login.html";
+          window.location.href = "index.html";
         });
       }
 
     } else {
       alert("No user document found!");
-      window.location.href = "login.html";
+      window.location.href = "index.html";
     }
   } else {
-    window.location.href = "login.html"; 
+    window.location.href = "index.html"; 
   }
 });
 

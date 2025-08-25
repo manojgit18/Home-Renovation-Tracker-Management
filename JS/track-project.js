@@ -3,7 +3,7 @@ import { collection, query, where, getDocs, doc, updateDoc, deleteDoc } from "ht
 
 auth.onAuthStateChanged(async (user) => {
   if (!user) {
-    window.location.href = "login.html";
+    window.location.href = "index.html";
     return;
   }
   loadUserProjects(user.uid);

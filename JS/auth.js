@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
           role,
         });
 
-        window.location.href = "login.html";
+        window.location.href = "index.html";
       } catch (error) {
         document.getElementById("signup-message").innerText = error.message;
       }
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (logoutBtn) {
     logoutBtn.addEventListener("click", async () => {
       await signOut(auth);
-      window.location.href = "login.html";
+      window.location.href = "index.html";
     });
   }
 });

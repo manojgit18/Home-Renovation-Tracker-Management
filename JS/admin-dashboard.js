@@ -4,7 +4,7 @@ import { collection, getDocs, doc, updateDoc, deleteDoc } from "https://www.gsta
 // Auth check
 auth.onAuthStateChanged(user => {
   if (!user) {
-    window.location.href = "login.html";
+    window.location.href = "index.html";
     return;
   }
   loadAllProjects();
@@ -123,5 +123,5 @@ async function deleteProject(projectId) {
 // Logout
 document.getElementById("logout-btn").addEventListener("click", async () => {
   await auth.signOut();
-  window.location.href = "login.html";
+  window.location.href = "index.html";
 });
