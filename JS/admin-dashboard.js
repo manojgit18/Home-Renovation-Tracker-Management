@@ -23,7 +23,7 @@ const projectStatuses = [
   "Delivered"
 ];
 
-// Load all projects
+// Load all projects grouped by user
 async function loadAllProjects() {
   const projectList = document.getElementById("projectList");
   projectList.innerHTML = "Loading projects...";
@@ -37,48 +37,62 @@ async function loadAllProjects() {
       return;
     }
 
+    // Group projects by userId
+    const usersProjects = {};
     querySnapshot.forEach(docSnap => {
       const project = docSnap.data();
       const projectId = docSnap.id;
-
-      const div = document.createElement("div");
-      div.classList.add("project-card");
-
-      // Build status dropdown
-      const statusOptions = projectStatuses
-        .map(status => `<option value="${status}" ${status === project.status ? "selected" : ""}>${status}</option>`)
-        .join("");
-
-      div.innerHTML = `
-        <h3>${project.name} (User: ${project.userId})</h3>
-        <p><b>Budget:</b> ${project.budget || "N/A"}</p>
-        <p><b>Renovations:</b> ${project.renovations?.join(", ") || "None"}</p>
-        <p><b>Description:</b> ${project.description || "No description"}</p>
-        <div class="status-update">
-          <label for="status-${projectId}">Update Status:</label>
-          <select id="status-${projectId}">
-            ${statusOptions}
-          </select>
-          <button class="update-status-btn">Update</button>
-        </div>
-        <div class="button-group">
-          <button class="delete-btn" data-id="${projectId}">Delete Project</button>
-        </div>
-      `;
-
-      projectList.appendChild(div);
-
-      // Event listeners
-      div.querySelector(".update-status-btn").addEventListener("click", () => updateStatus(projectId, div));
-      div.querySelector(".delete-btn").addEventListener("click", () => deleteProject(projectId));
+      if (!usersProjects[project.userId]) usersProjects[project.userId] = [];
+      usersProjects[project.userId].push({ ...project, id: projectId });
     });
+
+    // Render each user's projects in one container
+    for (const userId in usersProjects) {
+      const userDiv = document.createElement("div");
+      userDiv.classList.add("user-project-container");
+      userDiv.innerHTML = `<h2>User: ${userId}</h2>`;
+
+      usersProjects[userId].forEach(project => {
+        const projectDiv = document.createElement("div");
+        projectDiv.classList.add("project-card");
+        
+        // Status dropdown
+        const statusOptions = projectStatuses
+          .map(status => `<option value="${status}" ${status === project.status ? "selected" : ""}>${status}</option>`)
+          .join("");
+
+        projectDiv.innerHTML = `
+          <h3>${project.name}</h3>
+          <p><b>Budget:</b> ${project.budget || "N/A"}</p>
+          <p><b>Renovations:</b> ${project.renovations?.join(", ") || "None"}</p>
+          <p><b>Description:</b> ${project.description || "No description"}</p>
+          <div class="status-update">
+            <label for="status-${project.id}">Update Status:</label>
+            <select id="status-${project.id}">
+              ${statusOptions}
+            </select>
+            <button class="update-status-btn">Update</button>
+          </div>
+          <div class="button-group">
+            <button class="delete-btn" data-id="${project.id}">Delete Project</button>
+          </div>
+        `;
+        userDiv.appendChild(projectDiv);
+
+        // Event listeners
+        projectDiv.querySelector(".update-status-btn").addEventListener("click", () => updateStatus(project.id, projectDiv));
+        projectDiv.querySelector(".delete-btn").addEventListener("click", () => deleteProject(project.id));
+      });
+
+      projectList.appendChild(userDiv);
+    }
   } catch (error) {
     projectList.innerHTML = "<p>❌ Failed to load projects.</p>";
     console.error(error);
   }
 }
 
-// Update project status
+// Update project status (alert behavior kept)
 async function updateStatus(projectId, div) {
   const selectEl = div.querySelector("select");
   const newStatus = selectEl.value;
